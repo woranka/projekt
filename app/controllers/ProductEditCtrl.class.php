@@ -21,6 +21,7 @@ class ProductEditCtrl {
         //0. Pobranie parametrów z walidacją
         $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct', true, 'Błędne wywołanie aplikacji');
         $this->form->product_name = ParamUtils::getFromRequest('product_name', true, 'Błędne wywołanie aplikacji');
+        $this->form->category = ParamUtils::getFromRequest('category', true, 'Błędne wywołanie aplikacji');
         $this->form->price = ParamUtils::getFromRequest('price', true, 'Błędne wywołanie aplikacji');
         $this->form->quantity = ParamUtils::getFromRequest('quantity', true, 'Błędne wywołanie aplikacji');
 
@@ -30,6 +31,9 @@ class ProductEditCtrl {
         // 1. sprawdzenie czy wartości wymagane nie są puste
         if (empty(trim($this->form->product_name))) {
             Utils::addErrorMessage('Wprowadź nazwę produktu');
+        }
+        if (!isset($this->form->category)) {
+            Utils::addErrorMessage('Wprowadź kategorię produktu');
         }
         if (empty(trim($this->form->price))) {
             Utils::addErrorMessage('Wprowadź cenę produktu');
@@ -70,6 +74,7 @@ class ProductEditCtrl {
                 // 2.1 jeśli produkt istnieje to wpisz dane do obiektu formularza
                 $this->form->IDproduct = $record['IDproduct'];
                 $this->form->product_name = $record['product_name'];
+                $this->form->category = $record['category'];
                 $this->form->price = $record['price'];
                 $this->form->quantity = $record['quantity'];
             } catch (\PDOException $e) {
@@ -100,7 +105,7 @@ class ProductEditCtrl {
             }
         }
 
-        // 3. Przekierowanie na stronę listy osób
+        // 3. Przekierowanie na stronę listy produktów
         App::getRouter()->forwardTo('productList');
     }
 
@@ -110,27 +115,19 @@ class ProductEditCtrl {
         if ($this->validateSave()) {
             // 2. Zapis danych w bazie
             try {
-
                 //2.1 Nowy rekord
                 if ($this->form->IDproduct == '') {
-                    //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("product");
-                    if ($count <= 20) {
-                        App::getDB()->insert("product", [
-                            "product_name" => $this->form->product_name,
-                            "price" => $this->form->price,
-                            "quantity" => $this->form->quantity,
-                        ]);
-                    } else { //za dużo rekordów
-                        // Gdy za dużo rekordów to pozostań na stronie
-                        Utils::addInfoMessage('Ograniczenie: Zbyt dużo rekordów. Aby dodać nowy usuń wybrany wpis.');
-                        $this->generateView(); //pozostań na stronie edycji
-                        exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
-                    }
+                    App::getDB()->insert("product", [
+                        "product_name" => $this->form->product_name,
+                        "category" => $this->form->category,
+                        "price" => $this->form->price,
+                        "quantity" => $this->form->quantity,
+                    ]);
                 } else {
                     //2.2 Edycja rekordu o danym ID
                     App::getDB()->update("product", [
                         "product_name" => $this->form->product_name,
+                        "category" => $this->form->category,
                         "price" => $this->form->price,
                         "quantity" => $this->form->quantity,
                             ], [

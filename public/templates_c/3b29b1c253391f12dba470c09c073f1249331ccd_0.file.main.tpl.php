@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-01-30 19:28:45
+/* Smarty version 3.1.34-dev-7, created on 2021-02-04 19:51:12
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6015a55ddda488_98659847',
+  'unifunc' => 'content_601c4220529939_89849094',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3b29b1c253391f12dba470c09c073f1249331ccd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\templates\\main.tpl',
-      1 => 1612031315,
+      1 => 1612464667,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6015a55ddda488_98659847 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601c4220529939_89849094 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -94,6 +94,8 @@ start">START</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 productList">Produkty</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+customerList">Klienci</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 orderList">Zamówienia</a></li>
                                 <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout">WYLOGUJ</a></li>
@@ -110,7 +112,7 @@ loginShow" class="btn">PANEL PRACOWNIKA <i class="fa fa-cogs fa-5"></i></a></li>
     <!-- /.navbar -->
                
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15338059416015a55ddbfb94_96705091', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1310717554601c42204fea22_25985370', 'content');
 ?>
 
         
@@ -194,12 +196,12 @@ loginShow">Panel pracownika</a></b>
 
 <?php }
 /* {block 'content'} */
-class Block_15338059416015a55ddbfb94_96705091 extends Smarty_Internal_Block
+class Block_1310717554601c42204fea22_25985370 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_15338059416015a55ddbfb94_96705091',
+    0 => 'Block_1310717554601c42204fea22_25985370',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

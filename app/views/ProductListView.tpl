@@ -26,6 +26,7 @@
                 
                 <div class="bottom-margin">
                     <a class="pure-button button-success" href="{$conf->action_root}productNew">+ nowy produkt</a>
+                    <a class="pure-button button-error" href="{$conf->action_root}productList">lista</a>
                 </div>	
                 
                 <div class="top-margin">
@@ -48,6 +49,7 @@
                     <thead>
                         <tr>
                             <th>Nazwa produktu</th>
+                            <th>Kategoria</th>
                             <th>Cena</th>
                             <th>Ilość</th>
                             <th>Opcje</th>
@@ -58,6 +60,7 @@
                         {strip}
                             <tr>
                                 <td>{$p["product_name"]}</td>
+                                <td>{$p["category"]}</td>
                                 <td>{$p["price"]}</td>
                                 <td>{$p["quantity"]}</td>
                                 <td>

@@ -48,6 +48,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANEL PRACOWNIKA <b class="caret"></b></a>
                             <ul class="dropdown-menu text-center" style="min-width:208.05px">
                                 <li><a href="{$conf->action_root}productList">Produkty</a></li>
+                                <li><a href="{$conf->action_root}customerList">Klienci</a></li>
                                 <li><a href="{$conf->action_root}orderList">Zamówienia</a></li>
                                 <li class="active"><a href="{$conf->action_root}logout">WYLOGUJ</a></li>
                             </ul>

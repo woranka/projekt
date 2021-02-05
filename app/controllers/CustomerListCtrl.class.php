@@ -5,22 +5,22 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\ProductSearchForm;
+use app\forms\CustomerSearchForm;
 
-class ProductListCtrl {
+class CustomerListCtrl {
     
     private $form; //dane formularza wyszukiwania
     private $records; //rekordy pobrane z bazy danych
     
     public function __construct() {
         //stworzenie potrzebnych obiektów
-        $this->form = new ProductSearchForm();
+        $this->form = new CustomerSearchForm();
     }
 
     public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->product_name = ParamUtils::getFromRequest('product_name');
+        $this->form->surname = ParamUtils::getFromRequest('surname');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać
@@ -28,17 +28,17 @@ class ProductListCtrl {
         return !App::getMessages()->isError();
     }
 
-    public function action_productList() {
+    public function action_customerList() {
         // 1. Walidacja danych formularza (z pobraniem)
-        // - W tej aplikacji walidacja nie jest potrzebna, ponieważ nie wystąpią błedy podczas podawania nazwy produktu.
+        // - W tej aplikacji walidacja nie jest potrzebna, ponieważ nie wystąpią błedy podczas podawania nazwiska klienra.
         //   Jednak pozostawiono ją, ponieważ gdyby uzytkownik wprowadzał np. datę, lub wartość numeryczną, to trzeba
         //   odpowiednio zareagować wyświetlając odpowiednią informację (poprzez obiekt wiadomości Messages)
         $this->validate();
 
         // 2. Przygotowanie mapy z parametrami wyszukiwania (nazwa_kolumny => wartość)
         $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
-        if (isset($this->form->product_name) && strlen($this->form->product_name) > 0) {
-            $search_params['product_name[~]'] = $this->form->product_name . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+        if (isset($this->form->surname) && strlen($this->form->surname) > 0) {
+            $search_params['surname[~]'] = $this->form->surname . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
         }
 
         // 3. Pobranie listy rekordów z bazy danych
@@ -52,16 +52,21 @@ class ProductListCtrl {
             $where = &$search_params;
         }
         //dodanie frazy sortującej po nazwie produktu
-        $where ["ORDER"] = "product_name";
+        $where ["ORDER"] = "surname";
         //wykonanie zapytania
 
         try {
-            $this->records = App::getDB()->select("product", [
-                    "IDproduct",
-                    "product_name",
-                    "category",
-                    "price",
-                    "quantity"
+            $this->records = App::getDB()->select("customer", [
+                    "IDcustomer",
+                    "name",
+                    "surname",
+                    "phone_number",
+                    "email",
+                    "city",
+                    "postal_code",
+                    "street_name",
+                    "street_number",
+                    "house_number"
                 ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
@@ -71,7 +76,7 @@ class ProductListCtrl {
 
         // 4. wygeneruj widok
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
-        App::getSmarty()->assign('product', $this->records);  // lista rekordów z bazy danych
-        App::getSmarty()->display('ProductListView.tpl');
-    }  
+        App::getSmarty()->assign('customer', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->display('CustomerListView.tpl');
+    }
 }

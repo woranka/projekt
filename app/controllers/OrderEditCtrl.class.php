@@ -106,19 +106,10 @@ class OrderEditCtrl {
 
                 //2.1 Nowy rekord
                 if ($this->form->IDorder == '') {
-                    //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("order");
-                    if ($count <= 20) {
-                        App::getDB()->insert("order", [
-                            "order_number" => $this->form->order_number,
-                            "order_completed" => $this->form->order_completed,
-                        ]);
-                    } else { //za dużo rekordów
-                        // Gdy za dużo rekordów to pozostań na stronie
-                        Utils::addInfoMessage('Ograniczenie: Zbyt dużo rekordów. Aby dodać nowy usuń wybrany wpis.');
-                        $this->generateView(); //pozostań na stronie edycji
-                        exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
-                    }
+                    App::getDB()->insert("order", [
+                        "order_number" => $this->form->order_number,
+                        "order_completed" => $this->form->order_completed,
+                    ]);
                 } else {
                     //2.2 Edycja rekordu o danym ID
                     App::getDB()->update("order", [

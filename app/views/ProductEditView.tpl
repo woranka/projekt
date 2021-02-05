@@ -18,19 +18,31 @@
                                 <legend>Dane produktu</legend>
                                 <div class="top-margin">
                                     <label for="product_name">Nazwa produktu</label>
-                                    <input id="product_name" type="text" placeholder="Nazwa produktu" name="product_name" value="{$form->product_name}">
+                                    <input id="product_name" type="text" placeholder="nazwa produktu" name="product_name" value="{$form->product_name}">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="category">Kategoria</label>
+                                    <select name="category">
+                                        {foreach $product as $p}
+                                            <option value="{$p["category"]}">batony</option>
+                                            <option value="{$p["category"]}">ciastka</option>
+                                            <option value="{$p["category"]}">czekolady</option>
+                                            <option value="{$p["category"]}">żelki</option>
+                                        {/foreach}
+                                    </select>
                                 </div>
                                 <div class="top-margin">
                                     <label for="price">Cena</label>
-                                    <input id="price" type="text" placeholder="Cena" name="price" value="{$form->price}">
+                                    <input id="price" type="text" placeholder="cena" name="price" value="{$form->price}">
                                 </div>
                                 <div class="top-margin">
                                     <label for="quantity">Ilość</label>
-                                    <input id="quantity" type="text" placeholder="Ilość" name="quantity" value="{$form->quantity}">
+                                    <input id="quantity" type="text" placeholder="ilość" name="quantity" value="{$form->quantity}">
                                 </div>
-                                <div class="top-margin">
-                                    <input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-                                    <a class="pure-button button-secondary" href="{$conf->action_root}productList">Powrót</a>
+                                <div class="top margin" style="display: flex">
+                                    <a class="pure-button button-secondary" style="width: 50%" href="{$conf->action_root}productList">Powrót</a>
+                                    &nbsp;
+                                    <input type="submit" class="pure-button pure-button-primary"  style="width: 50%" value="Zapisz"/>
                                 </div>
                                 <input type="hidden" name="IDproduct" value="{$form->IDproduct}">
                             </form>	

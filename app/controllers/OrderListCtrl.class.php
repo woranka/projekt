@@ -20,7 +20,7 @@ class OrderListCtrl {
     public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->porder_number = ParamUtils::getFromRequest('order_number');
+        $this->form->order_number = ParamUtils::getFromRequest('order_number');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać

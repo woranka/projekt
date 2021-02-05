@@ -53,6 +53,7 @@ class StartCtrl {
         }
         //dodanie frazy sortującej po nazwie produktu
         $where ["ORDER"] = "product_name";
+        //$where ["LIMIT"] = 1;
         //wykonanie zapytania
 
         try {
