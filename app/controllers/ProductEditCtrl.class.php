@@ -126,6 +126,7 @@ class ProductEditCtrl {
                         "category" => $this->form->category,
                         "price" => $this->form->price,
                         "quantity" => $this->form->quantity,
+                        "status" => $this->form->status,
                     ]);
                 } else {
                     //2.2 Edycja rekordu o danym ID
@@ -134,6 +135,7 @@ class ProductEditCtrl {
                         "category" => $this->form->category,
                         "price" => $this->form->price,
                         "quantity" => $this->form->quantity,
+                        "status" => $this->form->status,
                             ], [
                         "IDproduct" => $this->form->IDproduct
                     ]);

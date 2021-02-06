@@ -8,4 +8,5 @@ class ProductEditForm {
     public $category;
     public $price;
     public $quantity;
+    public $status;
 }

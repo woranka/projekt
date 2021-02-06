@@ -43,8 +43,8 @@
                 {/if}
                 {/block}
                 </div>
-                
-                <table id="tab_people" class="pure-table pure-table-bordered">
+                <div class="table-responsive">
+                <table class='table'>
                     <thead>
                         <tr>
                             <th>Nazwisko</th>
@@ -56,7 +56,7 @@
                             <th>Ulica</th>
                             <th>Nr budynku</th>
                             <th>Nr lokalu</th>
-                            <th >Opcje</th>
+                            <th>Opcje</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +81,8 @@
                         {/strip}
                         {/foreach}
                     </tbody>
-                </table>  
+                </table>
+                </div>
             </article>
         </div>
     </div>

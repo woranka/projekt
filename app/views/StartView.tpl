@@ -24,30 +24,32 @@
     <div class="container text-center">
         <div class="col-md-12">
             <h3 class="text-center thin">Dostępne produkty: </h3></br>
-            <table id="tab_people" class="pure-table pure-table-bordered" style="margin-left: auto; margin-right: auto">
-                    <thead>
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nazwa produktu</th>
+                        <th>Kategoria</th>
+                        <th>Cena</th>
+                        <th>Ilość</th>
+                        <th>Dostępny</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $product as $p}
+                    {strip}
                         <tr>
-                            <th>Nazwa produktu</th>
-                            <th>Kategoria</th>
-                            <th>Cena</th>
-                            <th>Ilość</th>
-                            <th>Dostępny</th>
+                            <td>{$p["product_name"]}</td>
+                            <td>{$p["category"]}</td>
+                            <td>{$p["price"]}</td>
+                            <td>{$p["quantity"]}</td>
+                            <td>{$p["status"]}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {foreach $product as $p}
-                        {strip}
-                            <tr>
-                                <td>{$p["product_name"]}</td>
-                                <td>{$p["category"]}</td>
-                                <td>{$p["price"]}</td>
-                                <td>{$p["quantity"]}</td>
-                                <td>{$p["status"]}</td>
-                            </tr>
-                        {/strip}
-                        {/foreach}
-                    </tbody>
-                </table>
+                    {/strip}
+                    {/foreach}
+                </tbody>
+            </table>
+            </div>
         </div>
     </div>
     <!-- /Intro-->
