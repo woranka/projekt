@@ -72,12 +72,10 @@
                                 <td>{$c["street_name"]}</td>
                                 <td>{$c["street_number"]}</td>
                                 <td>{$c["house_number"]}</td>
-                                <td style="text-align: center">
-                                    <a class="button-small pure-button button-secondary" style="width: 103.33px" href="{$conf->action_url}customerEdit/{$c['IDcustomer']}">Edytuj</a>
-                                    <br>
-                                    <a class="button-small pure-button button-warning" style="width: 103.33px" href="{$conf->action_url}customerDelete/{$c['IDcustomer']}">Usuń</a>
-                                    <br>
-                                    <a class="button-small button-success" href="{$conf->action_url}orderNew/{$c['IDcustomer']}">Zamówienie</a>
+                                <td style='display:flex'>
+                                    <a class="button-small pure-button button-secondary" href="{$conf->action_url}customerEdit/{$c['IDcustomer']}">Edytuj</a>
+                                    &nbsp;
+                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}customerDelete/{$c['IDcustomer']}">Usuń</a>
                                 </td>
                             </tr>
                         {/strip}

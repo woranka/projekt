@@ -24,6 +24,7 @@ class ProductEditCtrl {
         $this->form->category = ParamUtils::getFromRequest('category', true, 'Błędne wywołanie aplikacji');
         $this->form->price = ParamUtils::getFromRequest('price', true, 'Błędne wywołanie aplikacji');
         $this->form->quantity = ParamUtils::getFromRequest('quantity', true, 'Błędne wywołanie aplikacji');
+        $this->form->status = ParamUtils::getFromRequest('status', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -32,7 +33,7 @@ class ProductEditCtrl {
         if (empty(trim($this->form->product_name))) {
             Utils::addErrorMessage('Wprowadź nazwę produktu');
         }
-        if (!isset($this->form->category)) {
+        if (empty(trim($this->form->category))) {
             Utils::addErrorMessage('Wprowadź kategorię produktu');
         }
         if (empty(trim($this->form->price))) {
@@ -41,6 +42,10 @@ class ProductEditCtrl {
         if (empty(trim($this->form->quantity))) {
             Utils::addErrorMessage('Wprowadź ilość');
         }
+        if (empty(trim($this->form->status))) {
+            Utils::addErrorMessage('Wprowadź status');
+        }
+        
 
         if (App::getMessages()->isError())
             return false;
@@ -77,6 +82,7 @@ class ProductEditCtrl {
                 $this->form->category = $record['category'];
                 $this->form->price = $record['price'];
                 $this->form->quantity = $record['quantity'];
+                $this->form->status = $record['status'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -84,16 +90,14 @@ class ProductEditCtrl {
             }
         }
 
-        // 3. Wygenerowanie widoku
         $this->generateView();
     }
 
     public function action_productDelete() {
-        // 1. walidacja id produktu do usuniecia
+
         if ($this->validateEdit()) {
 
             try {
-                // 2. usunięcie rekordu
                 App::getDB()->delete("product", [
                     "IDproduct" => $this->form->IDproduct
                 ]);
@@ -140,11 +144,8 @@ class ProductEditCtrl {
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
-
-            // 3b. Po zapisie przejdź na stronę listy produktów (w ramach tego samego żądania http)
             App::getRouter()->forwardTo('productList');
         } else {
-            // 3c. Gdy błąd walidacji to pozostań na stronie
             $this->generateView();
         }
     }

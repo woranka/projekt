@@ -17,7 +17,9 @@
 .error{	background-color: #f88; }
 .warning{ background-color: #fd2; }
 .info{ background-color: #afa; }
-.search-results{ background-color: #F3DCBC; }
+.search-results{ 
+    background-color: #F3DCBC;
+}
 
 .bottom-margin{
     margin-bottom: 1em;
@@ -69,3 +71,5 @@
 .button-xlarge {
     font-size: 125%;
 }
+
+#tab_people td {text-align: center;}

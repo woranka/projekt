@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-05 01:10:25
+/* Smarty version 3.1.34-dev-7, created on 2021-02-06 13:09:40
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\ProductListView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c8cf1153e04_21964418',
+  'unifunc' => 'content_601e8704c0ee53_27440992',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ee1bd8748f5ad3f558e37c290a52db1303fc3e38' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\ProductListView.tpl',
-      1 => 1612483722,
+      1 => 1612613361,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,20 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c8cf1153e04_21964418 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601e8704c0ee53_27440992 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1050179073601c8cf10bc009_73784604', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1816805943601e8704b74b21_78014878', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_426302489601c8cf10ed1d9_68335247 extends Smarty_Internal_Block
+class Block_177755905601e8704b92116_18749228 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -60,16 +60,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_1050179073601c8cf10bc009_73784604 extends Smarty_Internal_Block
+class Block_1816805943601e8704b74b21_78014878 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1050179073601c8cf10bc009_73784604',
+    0 => 'Block_1816805943601e8704b74b21_78014878',
   ),
   'messages' => 
   array (
-    0 => 'Block_426302489601c8cf10ed1d9_68335247',
+    0 => 'Block_177755905601e8704b92116_18749228',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -82,9 +82,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 start">Start</a></li>
             <li class="active">Panel pracownika</li>
-            <!--<span style="float:right;">użytkownik: <?php echo $_smarty_tpl->tpl_vars['account']->value->login;?>
-, rola: <?php echo $_smarty_tpl->tpl_vars['account']->value->role;?>
-</span><br>-->
         </ol>
         
         <div class="row">
@@ -112,7 +109,7 @@ productList">lista</a>
                 
                 <div class="top-margin">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_426302489601c8cf10ed1d9_68335247', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_177755905601e8704b92116_18749228', 'messages', $this->tplIndex);
 ?>
 
                 </div>
@@ -124,6 +121,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_426302489601c8cf10
                             <th>Kategoria</th>
                             <th>Cena</th>
                             <th>Ilość</th>
+                            <th>Dostępny</th>
                             <th>Opcje</th>
                         </tr>
                     </thead>
@@ -138,11 +136,14 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["category"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["price"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["quantity"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["status"];?>
 </td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 productEdit/<?php echo $_smarty_tpl->tpl_vars['p']->value['IDproduct'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 productDelete/<?php echo $_smarty_tpl->tpl_vars['p']->value['IDproduct'];?>
-">Usuń</a></td></tr>
+">Usuń</a>&nbsp;<a class="button-small button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+orderNew/<?php echo $_smarty_tpl->tpl_vars['p']->value['IDproduct'];?>
+">Dodaj do zamówienia</a></td></tr>
                         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

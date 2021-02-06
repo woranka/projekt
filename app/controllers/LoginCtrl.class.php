@@ -6,6 +6,7 @@ use core\App;
 use core\Utils;
 use core\RoleUtils;
 use core\ParamUtils;
+use core\SessionUtils;
 use app\forms\LoginForm;
 
 class LoginCtrl {
@@ -39,6 +40,8 @@ class LoginCtrl {
         // sprawdzenie, czy dane logowania poprawne
         $account = App::getDB()->select("employee", "*",["login" => $this->form->login]);
         if (count($account)>0 && ($this->form->password == $account[0]['password'])) {
+            $id=$account[0]['IDemployee'];
+            SessionUtils::store('IDemployee', $id);
             RoleUtils::addRole($account[0]['role']);
         } else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
@@ -53,19 +56,15 @@ class LoginCtrl {
     
     public function action_login() {
         if ($this->validate()) {
-            //zalogowany => przekieruj na główną akcję (z przekazaniem messages przez sesję)
             Utils::addErrorMessage('Poprawnie zalogowano do systemu');
             App::getRouter()->redirectTo("productList");
         } else {
-            //niezalogowany => pozostań na stronie logowania
             $this->generateView();
         }
     }
     
     public function action_logout() {
-        // 1. zakończenie sesji
         session_destroy();
-        // 2. idź na stronę główną
         App::getRouter()->redirectTo('start');
     }
 

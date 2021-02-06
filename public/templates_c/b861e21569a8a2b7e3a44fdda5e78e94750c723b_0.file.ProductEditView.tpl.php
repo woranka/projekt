@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-04 23:57:23
+/* Smarty version 3.1.34-dev-7, created on 2021-02-05 11:06:08
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\ProductEditView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c7bd308eab6_04970657',
+  'unifunc' => 'content_601d18906b7a13_80391103',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b861e21569a8a2b7e3a44fdda5e78e94750c723b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\ProductEditView.tpl',
-      1 => 1612479439,
+      1 => 1612519564,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,20 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c7bd308eab6_04970657 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601d18906b7a13_80391103 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_368558372601c7bd300cf26_49239880', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2073426449601d189060bc49_83014961', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_40138279601c7bd3055f35_62349440 extends Smarty_Internal_Block
+class Block_2096400976601d1890658a20_70638938 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -60,16 +60,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_368558372601c7bd300cf26_49239880 extends Smarty_Internal_Block
+class Block_2073426449601d189060bc49_83014961 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_368558372601c7bd300cf26_49239880',
+    0 => 'Block_2073426449601d189060bc49_83014961',
   ),
   'messages' => 
   array (
-    0 => 'Block_40138279601c7bd3055f35_62349440',
+    0 => 'Block_2096400976601d1890658a20_70638938',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -99,25 +99,8 @@ productSave" method="post" class="pure-form pure-form-aligned">
                                 </div>
                                 <div class="top-margin">
                                     <label for="category">Kategoria</label>
-                                    <select name="category">
-                                        <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['product']->value, 'p');
-$_smarty_tpl->tpl_vars['p']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
-$_smarty_tpl->tpl_vars['p']->do_else = false;
-?>
-                                            <option value="<?php echo $_smarty_tpl->tpl_vars['p']->value["category"];?>
-">batony</option>
-                                            <option value="<?php echo $_smarty_tpl->tpl_vars['p']->value["category"];?>
-">ciastka</option>
-                                            <option value="<?php echo $_smarty_tpl->tpl_vars['p']->value["category"];?>
-">czekolady</option>
-                                            <option value="<?php echo $_smarty_tpl->tpl_vars['p']->value["category"];?>
-">żelki</option>
-                                        <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                    </select>
+                                    <input id="category" type="text" placeholder="kategoria" name="category" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->category;?>
+">
                                 </div>
                                 <div class="top-margin">
                                     <label for="price">Cena</label>
@@ -143,7 +126,7 @@ productList">Powrót</a>
                 </div>
                 <div class="col-md-6">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_40138279601c7bd3055f35_62349440', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2096400976601d1890658a20_70638938', 'messages', $this->tplIndex);
 ?>
 
                 </div>

@@ -7,7 +7,6 @@
         <ol class="breadcrumb">
             <li><a href="{$conf->action_root}start">Start</a></li>
             <li class="active">Panel pracownika</li>
-            <!--<span style="float:right;">użytkownik: {$account->login}, rola: {$account->role}</span><br>-->
         </ol>
         
         <div class="row">
@@ -52,6 +51,7 @@
                             <th>Kategoria</th>
                             <th>Cena</th>
                             <th>Ilość</th>
+                            <th>Dostępny</th>
                             <th>Opcje</th>
                         </tr>
                     </thead>
@@ -63,10 +63,13 @@
                                 <td>{$p["category"]}</td>
                                 <td>{$p["price"]}</td>
                                 <td>{$p["quantity"]}</td>
+                                <td>{$p["status"]}</td>
                                 <td>
                                     <a class="button-small pure-button button-secondary" href="{$conf->action_url}productEdit/{$p['IDproduct']}">Edytuj</a>
                                     &nbsp;
-                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}productDelete/{$p['IDproduct']}">Usuń</a>
+                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}productDelete/{$p['IDproduct']}">Usuń</a>                                    
+                                    &nbsp;
+                                    <a class="button-small button-success" href="{$conf->action_url}orderNew/{$p['IDproduct']}">Dodaj do zamówienia</a>
                                 </td>
                             </tr>
                         {/strip}

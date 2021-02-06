@@ -22,14 +22,7 @@
                                 </div>
                                 <div class="top-margin">
                                     <label for="category">Kategoria</label>
-                                    <select name="category">
-                                        {foreach $product as $p}
-                                            <option value="{$p["category"]}">batony</option>
-                                            <option value="{$p["category"]}">ciastka</option>
-                                            <option value="{$p["category"]}">czekolady</option>
-                                            <option value="{$p["category"]}">żelki</option>
-                                        {/foreach}
-                                    </select>
+                                    <input id="category" type="text" placeholder="kategoria" name="category" value="{$form->category}">
                                 </div>
                                 <div class="top-margin">
                                     <label for="price">Cena</label>

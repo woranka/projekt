@@ -10,6 +10,7 @@ use app\forms\OrderEditForm;
 class OrderEditCtrl {
     
     private $form;
+    private $records;
     
     public function __construct() {
         $this->form = new OrderEditForm();

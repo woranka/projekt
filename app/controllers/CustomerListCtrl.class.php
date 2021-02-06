@@ -9,21 +9,17 @@ use app\forms\CustomerSearchForm;
 
 class CustomerListCtrl {
     
-    private $form; //dane formularza wyszukiwania
-    private $records; //rekordy pobrane z bazy danych
+    private $form;
+    private $records;
     
     public function __construct() {
-        //stworzenie potrzebnych obiektów
+
         $this->form = new CustomerSearchForm();
     }
 
     public function validate() {
-        // 1. sprawdzenie, czy parametry zostały przekazane
-        // - nie trzeba sprawdzać
+        
         $this->form->surname = ParamUtils::getFromRequest('surname');
-
-        // 2. sprawdzenie poprawności przekazanych parametrów
-        // - nie trzeba sprawdzać
 
         return !App::getMessages()->isError();
     }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-05 01:45:54
+/* Smarty version 3.1.34-dev-7, created on 2021-02-06 13:16:04
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\CustomerListView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c9542783b39_54977607',
+  'unifunc' => 'content_601e8884a87779_12743482',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b635ce1981352439fb6466fdc87b56e1a22dfc46' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\CustomerListView.tpl',
-      1 => 1612485845,
+      1 => 1612613762,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c9542783b39_54977607 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601e8884a87779_12743482 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1465683016601c954267c506_69570682', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1474155843601e88849dbaa6_62080858', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_1700393820601c95426aa858_04313590 extends Smarty_Internal_Block
+class Block_1348625767601e88849fd608_78546633 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -61,16 +61,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_1465683016601c954267c506_69570682 extends Smarty_Internal_Block
+class Block_1474155843601e88849dbaa6_62080858 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1465683016601c954267c506_69570682',
+    0 => 'Block_1474155843601e88849dbaa6_62080858',
   ),
   'messages' => 
   array (
-    0 => 'Block_1700393820601c95426aa858_04313590',
+    0 => 'Block_1348625767601e88849fd608_78546633',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -110,7 +110,7 @@ customerList">lista</a>
                 
                 <div class="top-margin">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1700393820601c95426aa858_04313590', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1348625767601e88849fd608_78546633', 'messages', $this->tplIndex);
 ?>
 
                 </div>
@@ -146,19 +146,16 @@ $_smarty_tpl->tpl_vars['c']->do_else = false;
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["street_name"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["street_number"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["house_number"];?>
-</td><td style="text-align: center"><a class="button-small pure-button button-secondary" style="width: 103.33px" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+</td><td style='display:flex'><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 customerEdit/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
-">Edytuj</a><br><a class="button-small pure-button button-warning" style="width: 103.33px" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 customerDelete/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
-">Usuń</a><br><a class="button-small button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-orderNew/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
-">Zamówienie</a></td></tr>
+">Usuń</a></td></tr>
                         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </tbody>
-                </table>
-                
+                </table>  
             </article>
         </div>
     </div>

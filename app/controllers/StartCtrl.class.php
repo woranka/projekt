@@ -60,8 +60,10 @@ class StartCtrl {
             $this->records = App::getDB()->select("product", [
                 "IDproduct",
                 "product_name",
+                "category",
                 "price",
                 "quantity",
+                "status"
                     ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
