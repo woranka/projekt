@@ -18,35 +18,21 @@
                 <div class="bottom-margin">
                     <h3 class="page-title">Wyszukaj: </h3> 
                     <form action="{$conf->action_url}orderList" class="form-inline">
-                        <input type="text" placeholder="Numer zamówienia..." name="order_number" value="{$searchForm->order_number}" class="form-control" style="width: 27em"/>
+                        <input type="text" placeholder="Numer zamówienia..." name="order_number" value="{$searchForm->IDproduct}" class="form-control" style="width: 27em"/>
                         <button type="submit" class="btn btn-action"><i class="fa fa-search"></i></button>
                     </form>
-                </div>
-                        
-                <div class="bottom-margin">
-                    <a class="pure-button button-success" href="{$conf->action_root}orderNew">+ nowe zamówienie</a>
                 </div>	
-
-                <div class="top-margin">
-                {block name=messages}
-                {if $msgs->isMessage()}
-                    <div class="messages">
-                        <ul>
-                        {foreach $msgs->getMessages() as $msg}
-                        {strip}
-                            <li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
-                        {/strip}
-                        {/foreach}
-                        </ul>
-                    </div>
-                {/if}
-                {/block}
-                </div>
                 
-                <table id="tab_people" class="pure-table pure-table-bordered">
+                <div class="table-responsive">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>Numer zamówienia</th>
+                            <th>ID</th>
+                            <!--<th>Numer zamówienia</th>-->
+                            <th>Data zamówienia</th>
+                            <th>ID produktu</th>
+                            <th>ID klienta</th>
+                            <th>ID pracownika</th>
                             <th>Status</th>
                             <th>Opcje</th>
                         </tr>
@@ -55,19 +41,24 @@
                         {foreach $order as $o}
                         {strip}
                             <tr>
-                                <td>{$p["order_number"]}</td>
-                                <td>{$p["order_completed"]}</td>
+                                <td>{$o["IDorder"]}</td>
+                                <!--<td>{$o["order_number"]}</td>-->
+                                <td>{$o["order_date"]}</td>
+                                <td>{$o["IDproduct"]}</td>
+                                <td>{$o["IDcustomer"]}</td>
+                                <td>{$o["IDemployee"]}</td>
+                                <td>{$o["order_completed"]}</td>
                                 <td>
-                                    <a class="button-small pure-button button-secondary" href="{$conf->action_url}orderEdit/{$p['IDorder']}">Edytuj</a>
+                                    <a class="button-small pure-button button-secondary" href="{$conf->action_url}orderEdit/{$o['IDorder']}">Edytuj</a>
                                     &nbsp;
-                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}orderDelete/{$p['IDorder']}">Usuń</a>
+                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}orderDelete/{$o['IDorder']}">Usuń</a>
                                 </td>
                             </tr>
                         {/strip}
                         {/foreach}
                     </tbody>
                 </table>
-                   
+                </div>   
             </article>
         </div>
     </div>

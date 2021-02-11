@@ -12,20 +12,20 @@
         <div class="row">
             <article class="col-xs-12 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Klienci </h1>
+                    <h1 class="page-title">Pracownicy </h1>
                 </header>
                 
                 <div class="bottom-margin">
                     <h3 class="page-title">Wyszukaj: </h3>
-                    <form action="{$conf->action_url}customerList" class="form-inline">
+                    <form action="{$conf->action_url}employeeList" class="form-inline">
                         <input type="text" placeholder="Nazwisko..." name="surname" value="{$searchForm->surname}" class="form-control" style="width: 27em"/>
                         <button type="submit" class="btn btn-action"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
                 
                 <div class="bottom-margin">
-                    <a class="pure-button button-success" href="{$conf->action_root}customerNew">+ nowy klient</a>
-                    <a class="pure-button button-error" href="{$conf->action_root}customerList">lista</a>
+                    <a class="pure-button button-success" href="{$conf->action_root}employeeNew">+ nowy pracownik</a>
+                    <a class="pure-button button-error" href="{$conf->action_root}employeeList">lista</a>
                 </div>	
                 
                 <div class="top-margin">
@@ -52,55 +52,49 @@
                             <th>Imię</th>
                             <th>Nr telefonu</th>
                             <th>Email</th>
-                            <th>Miasto</th>
-                            <th>Kod pocztowy</th>
-                            <th>Ulica</th>
-                            <th>Nr budynku</th>
-                            <th>Nr lokalu</th>
+                            <th>Data zatrudnienia</th>
+                            <th>Login</th>
+                            <th>Hasło</th>
+                            <th>Rola</th>
                             <th>Opcje</th>
-                            <th>Zamówienia</th>
+                            <!--<th>Zamówienia</th>-->
                         </tr>
                     </thead>
                     <tbody>
-                        {foreach $customer as $c}
+                        {foreach $employee as $e}
                         {strip}
                             <tr>
-                                <td>{$c["IDcustomer"]}</td>
-                                <td>{$c["surname"]}</td>
-                                <td>{$c["name"]}</td>
-                                <td>{$c["phone_number"]}</td>
-                                <td>{$c["email"]}</td>
-                                <td>{$c["city"]}</td>
-                                <td>{$c["postal_code"]}</td>
-                                <td>{$c["street_name"]}</td>
-                                <td>{$c["street_number"]}</td>
-                                <td>{$c["house_number"]}</td>
+                                <td>{$e["IDemployee"]}</td>
+                                <td>{$e["surname"]}</td>
+                                <td>{$e["name"]}</td>
+                                <td>{$e["phone_number"]}</td>
+                                <td>{$e["email"]}</td>
+                                <td>{$e["hire_date"]}</td>
+                                <td>{$e["login"]}</td>
+                                <td>{$e["password"]}</td>
+                                <td>{$e["role"]}</td>
                                 <td style='display:flex'>
-                                    <a class="button-small pure-button button-secondary" href="{$conf->action_url}customerEdit/{$c['IDcustomer']}">Edytuj</a>
+                                    <a class="button-small pure-button button-secondary" href="{$conf->action_url}employeeEdit/{$e['IDemployee']}">Edytuj</a>
                                     &nbsp;
-                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}customerDelete/{$c['IDcustomer']}">Usuń</a>
+                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}employeeDelete/{$e['IDemployee']}">Usuń</a>
                                 </td>
-                                <td>
+                                <!--<td>
                                     {if !($c["IDorder"] == '')}
-                                        Nr zamówienia: [{$c["IDorder"]}]
+                                        Nr zamówienia: []
                                         <a class="button-small pure-button button-primary" href="{$conf->action_root}orderList?IDcustomer={$c["IDcustomer"]}">Szczegóły</a>
                                     {else if (!({$IDproduct} == '')) && ({$c["IDorder"]} == '')}
                                         <a class="button-small pure-button" href="{$conf->action_root}orderSave?IDcustomer={$c["IDcustomer"]}&IDproduct={$IDproduct}">Wybierz</a>
                                     {/if}
-                                </td>
+                                </td>-->
                             </tr>
                         {/strip}
                         {/foreach}
                     </tbody>
                 </table>
                 </div>
-                <div class="top-margin">
-                    {if !({$IDproduct} == '')}
-                        <a class="pure-button button-secondary" style="float:right" href="{$conf->action_root}productList">wróć do listy produktów</a>
-                    {/if}
-                </div>
             </article>
         </div>
     </div>
 {/block}
+
 

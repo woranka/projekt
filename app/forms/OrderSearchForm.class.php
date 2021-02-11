@@ -3,6 +3,12 @@
 namespace app\forms;
 
 class OrderSearchForm {
-    public $order_number;
+    public $IDorder;
+    public $IDcustomer;
+    public $IDemployee;
+    public $IDproduct;
+    //public $order_number;
+    public $order_date;
+    public $order_completed;
 }
 

@@ -20,6 +20,7 @@ class CustomerListCtrl {
     public function validate() {
         
         $this->form->surname = ParamUtils::getFromRequest('surname');
+        $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct');
 
         return !App::getMessages()->isError();
     }
@@ -54,6 +55,7 @@ class CustomerListCtrl {
         try {
             $this->records = App::getDB()->select("customer", [
                     "IDcustomer",
+                    "IDorder",
                     "name",
                     "surname",
                     "phone_number",
@@ -73,6 +75,7 @@ class CustomerListCtrl {
         // 4. wygeneruj widok
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('customer', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->assign('IDproduct',$this->form->IDproduct);
         App::getSmarty()->display('CustomerListView.tpl');
     }
 }

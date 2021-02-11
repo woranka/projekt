@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-11 17:00:57
-  from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\CustomerEditView.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2021-02-11 17:13:45
+  from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\EmployeeEditView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_602554b95cb6d1_77972090',
+  'unifunc' => 'content_602557b99aaf65_40842696',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '42804a0b9e4f136d2bfe747be01e8739360393d3' => 
+    '3ba99c823be2bbe68d05f81bae670fbe96eafffc' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\CustomerEditView.tpl',
-      1 => 1613059249,
+      0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\EmployeeEditView.tpl',
+      1 => 1613059231,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_602554b95cb6d1_77972090 (Smarty_Internal_Template $_smarty_tpl) {
+function content_602557b99aaf65_40842696 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1814739442602554b94faac0_92675567', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1800071571602557b992d699_57737997', 'content');
 ?>
+
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_1900716025602554b953efe2_61950981 extends Smarty_Internal_Block
+class Block_487987517602557b996f3c8_48684071 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -61,16 +62,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_1814739442602554b94faac0_92675567 extends Smarty_Internal_Block
+class Block_1800071571602557b992d699_57737997 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1814739442602554b94faac0_92675567',
+    0 => 'Block_1800071571602557b992d699_57737997',
   ),
   'messages' => 
   array (
-    0 => 'Block_1900716025602554b953efe2_61950981',
+    0 => 'Block_487987517602557b996f3c8_48684071',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -91,8 +92,8 @@ start">Start</a></li>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-customerSave" method="post" class="pure-form pure-form-aligned">
-                                <legend>Dane klienta</legend>
+employeeSave" method="post" class="pure-form pure-form-aligned">
+                                <legend>Dane pracownika</legend>
                                 <div class="top-margin">
                                     <label for="name">Imię</label>
                                     <input id="name" type="text" placeholder="imię" name="name" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->name;?>
@@ -114,37 +115,32 @@ customerSave" method="post" class="pure-form pure-form-aligned">
 ">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="city">Miasto</label>
-                                    <input id="city" type="text" placeholder="miasto" name="city" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->city;?>
+                                    <label for="hire_date">Data zatrudnienia</label>
+                                    <input id="hire_date" type="text" placeholder="data zatrudnienia [Y-m-d]" name="hire_date" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->hire_date;?>
 ">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="postal_code">Kod pocztowy</label>
-                                    <input id="postal_code" type="text" placeholder="kod pocztowy" name="postal_code" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->postal_code;?>
+                                    <label for="login">Login</label>
+                                    <input id="login" type="text" placeholder="login" name="login" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->login;?>
 ">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="street_name">Ulica</label>
-                                    <input id="street_name" type="text" placeholder="ulica" name="street_name" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->street_name;?>
+                                    <label for="password">Hasło</label>
+                                    <input id="password" type="text" placeholder="hasło" name="password" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->password;?>
 ">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="street_number">Nr budynku</label>
-                                    <input id="street_number" type="text" placeholder="nr budynku" name="street_number" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->street_number;?>
-">
-                                </div>
-                                <div class="top-margin">
-                                    <label for="house_number">Nr lokalu</label>
-                                    <input id="house_number" type="text" placeholder="nr lokalu" name="house_number" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->house_number;?>
+                                    <label for="role">Rola pracownika</label>
+                                    <input id="role" type="text" placeholder="rola [admin/user]" name="role" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->role;?>
 ">
                                 </div>
                                 <div class="top margin" style="display: flex">
                                     <a class="pure-button button-secondary" style="width: 35%" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-customerList">Powrót</a>
+employeeList">Powrót</a>
                                     &nbsp;
                                     <input type="submit" class="pure-button pure-button-primary"  style="width: 65%" value="Zapisz"/>
                                 </div>
-                                <input type="hidden" name="IDcustomer" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->IDcustomer;?>
+                                <input type="hidden" name="IDcustomer" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->IDemployee;?>
 ">
                             </form>	
                         </div>
@@ -152,7 +148,7 @@ customerList">Powrót</a>
                 </div>
                 <div class="col-md-6">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1900716025602554b953efe2_61950981', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_487987517602557b996f3c8_48684071', 'messages', $this->tplIndex);
 ?>
 
                 </div>

@@ -5,42 +5,26 @@ use core\App;
 use core\Utils;
 use core\ParamUtils;
 use core\Validator;
+use core\SessionUtils;
 use app\forms\OrderEditForm;
 
 class OrderEditCtrl {
     
     private $form;
-    private $records;
     
     public function __construct() {
         $this->form = new OrderEditForm();
     }
     
-        // Walidacja danych przed zapisem (nowe dane lub edycja).
+    // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateSave() {
-        //0. Pobranie parametrów z walidacją
-        $this->form->IDorder = ParamUtils::getFromRequest('IDorder', true, 'Błędne wywołanie aplikacji');
-        $this->form->order_number = ParamUtils::getFromRequest('order_number', true, 'Błędne wywołanie aplikacji');
-        $this->form->order_completed = ParamUtils::getFromRequest('order_completed', true, 'Błędne wywołanie aplikacji');
-
-        if (App::getMessages()->isError())
-            return false;
-
-        // 1. sprawdzenie czy wartości wymagane nie są puste
-        if (empty(trim($this->form->order_number))) {
-            Utils::addErrorMessage('Wprowadź numer zamówienia');
-        }
-        if (empty(trim($this->form->order_completed))) {
-            Utils::addErrorMessage('Wprowadź status zamówienia');
-        }
-
-        if (App::getMessages()->isError())
-            return false;
-
-        return !App::getMessages()->isError();
+       
+        $this->form->IDcustomer = ParamUtils::getFromRequest('IDcustomer', true, 'Błędne wywołanie aplikacji');
+        $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct', true, 'Błędne wywołanie aplikacji');
+        
     }
     
-    
+    /*
     //validacja danych przed wyswietleniem do edycji
     public function validateEdit() {
         //pobierz parametry na potrzeby wyswietlenia danych do edycji
@@ -64,8 +48,12 @@ class OrderEditCtrl {
                 ]);
                 // 2.1 jeśli zamówienie istnieje to wpisz dane do obiektu formularza
                 $this->form->IDorder = $record['IDorder'];
+                $this->form->IDcustomer = $record['IDcustomer'];
+                $this->form->IDemployee = $record['IDemployee'];
+                $this->form->IDproduct = $record['IDproduct'];
                 $this->form->order_number = $record['order_number'];
                 $this->form->order_completed = $record['order_completed'];
+                        
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -97,47 +85,53 @@ class OrderEditCtrl {
         // 3. Przekierowanie na stronę listy zamówień
         App::getRouter()->forwardTo('orderList');
     }
-
+    */
     public function action_orderSave() {
-
-        // 1. Walidacja danych formularza (z pobraniem)
-        if ($this->validateSave()) {
-            // 2. Zapis danych w bazie
-            try {
-
-                //2.1 Nowy rekord
-                if ($this->form->IDorder == '') {
-                    App::getDB()->insert("order", [
-                        "order_number" => $this->form->order_number,
-                        "order_completed" => $this->form->order_completed,
-                    ]);
-                } else {
-                    //2.2 Edycja rekordu o danym ID
-                    App::getDB()->update("order", [
-                        "order_number" => $this->form->order_number,
-                        "order_completed" => $this->form->order_completed,
-                            ], [
-                        "IDorder" => $this->form->IDorder
-                    ]);
-                }
-                Utils::addInfoMessage('Pomyślnie zapisano rekord');
-            } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
-                if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-            }
-
-            // 3b. Po zapisie przejdź na stronę listy zamówień (w ramach tego samego żądania http)
-            App::getRouter()->forwardTo('orderList');
-        } else {
-            // 3c. Gdy błąd walidacji to pozostań na stronie
-            $this->generateView();
+        $this->validateSave();
+                
+        try {
+            //Nowe zamówienie
+            App::getDB()->insert("order", [
+                "IDemployee" => SessionUtils::load('IDemployee', true),
+                "IDcustomer" => $this->form->IDcustomer,
+                "IDproduct" => $this->form->IDproduct,
+                "order_completed" => $this->form->order_completed                      
+            ]);
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
         }
-    }
 
-    public function generateView() {
-        App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
-        App::getSmarty()->display('OrderEditView.tpl');
+            $order_id = App::getDB()->id();
+            Utils::addInfoMessage('Pomyślnie zapisano zamówienie');
+
+        //Aktualizacja ilości produktu
+        try {
+            App::getDB()->update("product", [
+                "status" => 'N'
+            ],[
+                "IDproduct" => $this->form->IDproduct
+            ]);
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas aktualizacji');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
+
+        try {    
+            App::getDB()->update("customer", [
+                "IDorder" => $order_id
+            ],[
+                "IDcustomer" => $this->form->IDcustomer
+            ]);
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas aktualizacji');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
+
+        App::getRouter()->redirectTo('orderList');
     }
 }
 

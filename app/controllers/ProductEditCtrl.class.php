@@ -18,7 +18,7 @@ class ProductEditCtrl {
     
         // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateSave() {
-        //0. Pobranie parametrów z walidacją
+
         $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct', true, 'Błędne wywołanie aplikacji');
         $this->form->product_name = ParamUtils::getFromRequest('product_name', true, 'Błędne wywołanie aplikacji');
         $this->form->category = ParamUtils::getFromRequest('category', true, 'Błędne wywołanie aplikacji');
@@ -39,7 +39,7 @@ class ProductEditCtrl {
         if (empty(trim($this->form->price))) {
             Utils::addErrorMessage('Wprowadź cenę produktu');
         }
-        if (empty(trim($this->form->quantity))) {
+        if (!isset($this->form->quantity)) {
             Utils::addErrorMessage('Wprowadź ilość');
         }
         if (empty(trim($this->form->status))) {
@@ -136,7 +136,7 @@ class ProductEditCtrl {
                         "price" => $this->form->price,
                         "quantity" => $this->form->quantity,
                         "status" => $this->form->status,
-                            ], [
+                        ],[
                         "IDproduct" => $this->form->IDproduct
                     ]);
                 }

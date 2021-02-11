@@ -5,30 +5,30 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\ProductSearchForm;
+use app\forms\EmployeeSearchForm;
 
-class ProductListCtrl {
+class EmployeeListCtrl {
     
     private $form; //dane formularza wyszukiwania
     private $records; //rekordy pobrane z bazy danych
     
     public function __construct() {
         //stworzenie potrzebnych obiektów
-        $this->form = new ProductSearchForm();
+        $this->form = new EmployeeSearchForm();
     }
 
     public function validate() {
-        $this->form->product_name = ParamUtils::getFromRequest('product_name');
+        $this->form->surname = ParamUtils::getFromRequest('surname');
         return !App::getMessages()->isError();
     }
 
-    public function action_productList() {
+    public function action_employeeList() {
         
         $this->validate();
 
         $search_params = [];
-        if (isset($this->form->product_name) && strlen($this->form->product_name) > 0) {   
-            $search_params['product_name[~]'] = $this->form->product_name . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+        if (isset($this->form->surname) && strlen($this->form->surname) > 0) {   
+            $search_params['surname[~]'] = $this->form->surname . '%';
         }
         
         $num_params = sizeof($search_params);
@@ -38,16 +38,19 @@ class ProductListCtrl {
             $where = &$search_params;
         }
 
-        $where ["ORDER"] = "product_name";
+        $where ["ORDER"] = "surname";
 
         try {
-            $this->records = App::getDB()->select("product", [
-                "IDproduct",
-                "product_name",
-                "category",
-                "price",
-                "quantity",
-                "status"
+            $this->records = App::getDB()->select("employee", [
+                "IDemployee",
+                "login",
+                "password",
+                "role",
+                "name",
+                "surname",
+                "phone_number",
+                "email",
+                "hire_date"
                 ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
@@ -57,7 +60,7 @@ class ProductListCtrl {
 
         // 4. wygeneruj widok
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
-        App::getSmarty()->assign('product', $this->records);  // lista rekordów z bazy danych
-        App::getSmarty()->display('ProductListView.tpl');
+        App::getSmarty()->assign('employee', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->display('EmployeeListView.tpl');
     }  
 }

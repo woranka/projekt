@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-06 20:42:10
+/* Smarty version 3.1.34-dev-7, created on 2021-02-09 21:11:50
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\CustomerListView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601ef112345075_11958205',
+  'unifunc' => 'content_6022ec86610658_06410747',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b635ce1981352439fb6466fdc87b56e1a22dfc46' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\CustomerListView.tpl',
-      1 => 1612640527,
+      1 => 1612901506,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601ef112345075_11958205 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6022ec86610658_06410747 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_41425388601ef11229e234_84485169', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_445718206022ec8651f8b8_07850238', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_1675777080601ef1122c0170_81385758 extends Smarty_Internal_Block
+class Block_5018354476022ec86540692_91688585 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -61,16 +61,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_41425388601ef11229e234_84485169 extends Smarty_Internal_Block
+class Block_445718206022ec8651f8b8_07850238 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_41425388601ef11229e234_84485169',
+    0 => 'Block_445718206022ec8651f8b8_07850238',
   ),
   'messages' => 
   array (
-    0 => 'Block_1675777080601ef1122c0170_81385758',
+    0 => 'Block_5018354476022ec86540692_91688585',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -110,7 +110,7 @@ customerList">lista</a>
                 
                 <div class="top-margin">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1675777080601ef1122c0170_81385758', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5018354476022ec86540692_91688585', 'messages', $this->tplIndex);
 ?>
 
                 </div>
@@ -118,6 +118,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1675777080601ef112
                 <table class='table'>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nazwisko</th>
                             <th>Imię</th>
                             <th>Nr telefonu</th>
@@ -128,6 +129,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1675777080601ef112
                             <th>Nr budynku</th>
                             <th>Nr lokalu</th>
                             <th>Opcje</th>
+                            <th>Zamówienia</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,7 +139,8 @@ $_smarty_tpl->tpl_vars['c']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['c']->value) {
 $_smarty_tpl->tpl_vars['c']->do_else = false;
 ?>
-                        <tr><td><?php echo $_smarty_tpl->tpl_vars['c']->value["surname"];?>
+                        <tr><td><?php echo $_smarty_tpl->tpl_vars['c']->value["IDcustomer"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["surname"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["name"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["phone_number"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['c']->value["email"];?>
@@ -150,12 +153,34 @@ $_smarty_tpl->tpl_vars['c']->do_else = false;
 customerEdit/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 customerDelete/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
-">Usuń</a></td></tr>
+">Usuń</a></td><td><?php if (!($_smarty_tpl->tpl_vars['c']->value["IDorder"] == '')) {?>Nr zamówienia: [<?php echo $_smarty_tpl->tpl_vars['c']->value["IDorder"];?>
+]<a class="button-small pure-button button-primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+orderList?IDcustomer=<?php echo $_smarty_tpl->tpl_vars['c']->value["IDcustomer"];?>
+">Szczegóły</a><?php } else {
+ob_start();
+echo $_smarty_tpl->tpl_vars['IDproduct']->value;
+$_prefixVariable1 = ob_get_clean();
+ob_start();
+echo $_smarty_tpl->tpl_vars['c']->value["IDorder"];
+$_prefixVariable2 = ob_get_clean();
+if ((!($_prefixVariable1 == '')) && ($_prefixVariable2 == '')) {?><a class="button-small pure-button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+orderSave?IDcustomer=<?php echo $_smarty_tpl->tpl_vars['c']->value["IDcustomer"];?>
+&IDproduct=<?php echo $_smarty_tpl->tpl_vars['IDproduct']->value;?>
+">Wybierz</a><?php }}?></td></tr>
                         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </tbody>
                 </table>
+                </div>
+                <div class="top-margin">
+                    <?php ob_start();
+echo $_smarty_tpl->tpl_vars['IDproduct']->value;
+$_prefixVariable3 = ob_get_clean();
+if (!($_prefixVariable3 == '')) {?>
+                        <a class="pure-button button-secondary" style="float:right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+productList">wróć do listy produktów</a>
+                    <?php }?>
                 </div>
             </article>
         </div>

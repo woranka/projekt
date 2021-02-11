@@ -7,6 +7,7 @@
         <ol class="breadcrumb">
             <li><a href="{$conf->action_root}start">Start</a></li>
             <li class="active">Panel pracownika</li>
+            <!--<span style="float:right;">użytkownik: {$this->login}, rola: {$this->role}</span>-->
         </ol>
         
         <div class="row">
@@ -47,6 +48,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nazwa produktu</th>
                             <th>Kategoria</th>
                             <th>Cena</th>
@@ -59,6 +61,7 @@
                         {foreach $product as $p}
                         {strip}
                             <tr>
+                                <td>{$p["IDproduct"]}</td>
                                 <td>{$p["product_name"]}</td>
                                 <td>{$p["category"]}</td>
                                 <td>{$p["price"]}</td>
@@ -67,9 +70,11 @@
                                 <td>
                                     <a class="button-small pure-button button-secondary" href="{$conf->action_url}productEdit/{$p['IDproduct']}">Edytuj</a>
                                     &nbsp;
-                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}productDelete/{$p['IDproduct']}">Usuń</a>                                    
-                                    &nbsp;
-                                    <a class="button-small button-success" href="{$conf->action_url}orderNew/{$p['IDproduct']}">Dodaj do zamówienia</a>
+                                    <a class="button-small pure-button button-warning" href="{$conf->action_url}productDelete/{$p['IDproduct']}">Usuń</a>
+                                    {if $p["status"] == 'T'}
+                                        &nbsp;
+                                        <a class="button-small pure-button button-success" href="{$conf->action_url}customerList?IDproduct={$p['IDproduct']}">Dodaj do zamówienia</a>
+                                    {/if}
                                 </td>
                             </tr>
                         {/strip}

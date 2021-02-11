@@ -23,7 +23,7 @@
     <!-- Intro -->
     <div class="container text-center">
         <div class="col-md-12">
-            <h3 class="text-center thin">Dostępne produkty: </h3></br>
+            <h3 class="text-center thin">Nasze produkty: </h3></br>
             <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -31,7 +31,6 @@
                         <th>Nazwa produktu</th>
                         <th>Kategoria</th>
                         <th>Cena</th>
-                        <th>Ilość</th>
                         <th>Dostępny</th>
                     </tr>
                 </thead>
@@ -42,8 +41,13 @@
                             <td>{$p["product_name"]}</td>
                             <td>{$p["category"]}</td>
                             <td>{$p["price"]}</td>
-                            <td>{$p["quantity"]}</td>
-                            <td>{$p["status"]}</td>
+                            <td>
+                                {if $p["status"] == 'T'}
+                                    <i class="fa fa-check" style="color: green; font-size: 1.5em"></i>
+                                {else}
+                                    <i class="fa fa-times" style="color: red; font-size: 1.5em"></i>
+                                {/if}
+                            </td>
                         </tr>
                     {/strip}
                     {/foreach}

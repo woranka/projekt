@@ -3,8 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 
     <title>Łasuch - słodycze z zagranicy</title>
 
@@ -50,6 +48,9 @@
                                 <li><a href="{$conf->action_root}productList">Produkty</a></li>
                                 <li><a href="{$conf->action_root}customerList">Klienci</a></li>
                                 <li><a href="{$conf->action_root}orderList">Zamówienia</a></li>
+                                {if (\core\RoleUtils::inRole("admin"))}
+                                    <li><a href="{$conf->action_root}employeeList">Pracownicy</a></li>
+                                {/if}
                                 <li class="active"><a href="{$conf->action_root}logout">WYLOGUJ</a></li>
                             </ul>
                         </li>

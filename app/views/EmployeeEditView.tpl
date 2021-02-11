@@ -14,8 +14,8 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form action="{$conf->action_root}customerSave" method="post" class="pure-form pure-form-aligned">
-                                <legend>Dane klienta</legend>
+                            <form action="{$conf->action_root}employeeSave" method="post" class="pure-form pure-form-aligned">
+                                <legend>Dane pracownika</legend>
                                 <div class="top-margin">
                                     <label for="name">Imię</label>
                                     <input id="name" type="text" placeholder="imię" name="name" value="{$form->name}">
@@ -33,31 +33,27 @@
                                     <input id="email" type="text" placeholder="email" name="email" value="{$form->email}">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="city">Miasto</label>
-                                    <input id="city" type="text" placeholder="miasto" name="city" value="{$form->city}">
+                                    <label for="hire_date">Data zatrudnienia</label>
+                                    <input id="hire_date" type="text" placeholder="data zatrudnienia [Y-m-d]" name="hire_date" value="{$form->hire_date}">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="postal_code">Kod pocztowy</label>
-                                    <input id="postal_code" type="text" placeholder="kod pocztowy" name="postal_code" value="{$form->postal_code}">
+                                    <label for="login">Login</label>
+                                    <input id="login" type="text" placeholder="login" name="login" value="{$form->login}">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="street_name">Ulica</label>
-                                    <input id="street_name" type="text" placeholder="ulica" name="street_name" value="{$form->street_name}">
+                                    <label for="password">Hasło</label>
+                                    <input id="password" type="text" placeholder="hasło" name="password" value="{$form->password}">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="street_number">Nr budynku</label>
-                                    <input id="street_number" type="text" placeholder="nr budynku" name="street_number" value="{$form->street_number}">
-                                </div>
-                                <div class="top-margin">
-                                    <label for="house_number">Nr lokalu</label>
-                                    <input id="house_number" type="text" placeholder="nr lokalu" name="house_number" value="{$form->house_number}">
+                                    <label for="role">Rola pracownika</label>
+                                    <input id="role" type="text" placeholder="rola [admin/user]" name="role" value="{$form->role}">
                                 </div>
                                 <div class="top margin" style="display: flex">
-                                    <a class="pure-button button-secondary" style="width: 35%" href="{$conf->action_root}customerList">Powrót</a>
+                                    <a class="pure-button button-secondary" style="width: 35%" href="{$conf->action_root}employeeList">Powrót</a>
                                     &nbsp;
                                     <input type="submit" class="pure-button pure-button-primary"  style="width: 65%" value="Zapisz"/>
                                 </div>
-                                <input type="hidden" name="IDcustomer" value="{$form->IDcustomer}">
+                                <input type="hidden" name="IDcustomer" value="{$form->IDemployee}">
                             </form>	
                         </div>
                     </div>
@@ -81,4 +77,5 @@
         </div>
     </div>
 {/block}
+
 
