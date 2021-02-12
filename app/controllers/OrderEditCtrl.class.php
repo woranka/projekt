@@ -17,18 +17,14 @@ class OrderEditCtrl {
     }
     
     // Walidacja danych przed zapisem (nowe dane lub edycja).
-    public function validateSave() {
-       
+    public function validateSave() {      
         $this->form->IDcustomer = ParamUtils::getFromRequest('IDcustomer', true, 'Błędne wywołanie aplikacji');
-        $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct', true, 'Błędne wywołanie aplikacji');
-        
+        $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct', true, 'Błędne wywołanie aplikacji');  
     }
     
     /*
     //validacja danych przed wyswietleniem do edycji
     public function validateEdit() {
-        //pobierz parametry na potrzeby wyswietlenia danych do edycji
-        //z widoku listy zamowien (parametr jest wymagany)
         $this->form->IDorder = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
@@ -95,6 +91,7 @@ class OrderEditCtrl {
                 "IDemployee" => SessionUtils::load('IDemployee', true),
                 "IDcustomer" => $this->form->IDcustomer,
                 "IDproduct" => $this->form->IDproduct,
+                "order_number" => null,
                 "order_completed" => $this->form->order_completed                      
             ]);
         } catch (\PDOException $e) {
@@ -106,7 +103,7 @@ class OrderEditCtrl {
             $order_id = App::getDB()->id();
             Utils::addInfoMessage('Pomyślnie zapisano zamówienie');
 
-        //Aktualizacja ilości produktu
+        //Aktualizacja produktu
         try {
             App::getDB()->update("product", [
                 "status" => 'N'
@@ -118,7 +115,7 @@ class OrderEditCtrl {
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());
         }
-
+        //Aktualizacja klienta
         try {    
             App::getDB()->update("customer", [
                 "IDorder" => $order_id

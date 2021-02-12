@@ -9,11 +9,10 @@ use app\forms\ProductSearchForm;
 
 class ProductListCtrl {
     
-    private $form; //dane formularza wyszukiwania
-    private $records; //rekordy pobrane z bazy danych
+    private $form;
+    private $records; 
     
     public function __construct() {
-        //stworzenie potrzebnych obiektów
         $this->form = new ProductSearchForm();
     }
 
@@ -28,7 +27,7 @@ class ProductListCtrl {
 
         $search_params = [];
         if (isset($this->form->product_name) && strlen($this->form->product_name) > 0) {   
-            $search_params['product_name[~]'] = $this->form->product_name . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+            $search_params['product_name[~]'] = $this->form->product_name . '%';
         }
         
         $num_params = sizeof($search_params);
@@ -55,9 +54,8 @@ class ProductListCtrl {
                 Utils::addErrorMessage($e->getMessage());
         }
 
-        // 4. wygeneruj widok
-        App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
-        App::getSmarty()->assign('product', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->assign('searchForm', $this->form); 
+        App::getSmarty()->assign('product', $this->records); 
         App::getSmarty()->display('ProductListView.tpl');
     }  
 }

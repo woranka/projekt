@@ -53,7 +53,7 @@
                                     &nbsp;
                                     <input type="submit" class="pure-button pure-button-primary"  style="width: 65%" value="Zapisz"/>
                                 </div>
-                                <input type="hidden" name="IDcustomer" value="{$form->IDemployee}">
+                                <input type="hidden" name="IDemployee" value="{$form->IDemployee}">
                             </form>	
                         </div>
                     </div>

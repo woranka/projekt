@@ -36,7 +36,7 @@ class OrderListCtrl {
             $where = &$search_params;
         }
 
-        $where ["ORDER"] = ["order_date" => "desc"];
+        $where ["ORDER"] = "order_date";
 
         try {
             $this->records = App::getDB()->select("order", [
@@ -45,15 +45,15 @@ class OrderListCtrl {
                 "[>]product" => "IDproduct"
                 ],[
                     "customer.IDcustomer",
-                    "customer.surname",
-                    "customer.name",
+                    //"customer.surname",
+                    //"customer.name",
                     "employee.IDemployee",
-                    "employee.surname(surname_e)",
-                    "employee.name(name_e)",
+                    //"employee.surname(surname_e)",
+                    //"employee.name(name_e)",
                     "product.IDproduct",
-                    "product.product_name",
+                    //"product.product_name",
                     "order.IDorder",
-                    //"order.order_number",
+                    "order.order_number",
                     "order.order_date",
                     "order.order_completed",
                     ], $where);

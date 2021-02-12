@@ -9,7 +9,7 @@ use core\Validator;
 use app\forms\CustomerEditForm;
 
 class CustomerEditCtrl {
-    
+
     private $form;
     
     public function __construct() {

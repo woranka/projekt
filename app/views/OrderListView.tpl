@@ -18,17 +18,19 @@
                 <div class="bottom-margin">
                     <h3 class="page-title">Wyszukaj: </h3> 
                     <form action="{$conf->action_url}orderList" class="form-inline">
-                        <input type="text" placeholder="Numer zamówienia..." name="order_number" value="{$searchForm->IDproduct}" class="form-control" style="width: 27em"/>
+                        <input type="text" placeholder="ID produktu..." name="IDproduct" value="{$searchForm->IDproduct}" class="form-control" style="width: 27em"/>
                         <button type="submit" class="btn btn-action"><i class="fa fa-search"></i></button>
                     </form>
                 </div>	
-                
+                <div class="bottom-margin">
+                    <a class="pure-button button-error" href="{$conf->action_root}orderList">lista</a>
+                </div>
                 <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <!--<th>Numer zamówienia</th>-->
+                            <th>Numer zamówienia</th>
                             <th>Data zamówienia</th>
                             <th>ID produktu</th>
                             <th>ID klienta</th>
@@ -42,7 +44,7 @@
                         {strip}
                             <tr>
                                 <td>{$o["IDorder"]}</td>
-                                <!--<td>{$o["order_number"]}</td>-->
+                                <td>{$o["order_number"]}</td>
                                 <td>{$o["order_date"]}</td>
                                 <td>{$o["IDproduct"]}</td>
                                 <td>{$o["IDcustomer"]}</td>
