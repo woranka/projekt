@@ -42,8 +42,10 @@ class CustomerListCtrl {
 
         try {
             $this->records = App::getDB()->select("customer", [
+                "[>]order" => "IDcustomer"
+                ],[
                 "IDcustomer",
-                "IDorder",
+                "order.IDorder",
                 "name",
                 "surname",
                 "phone_number",

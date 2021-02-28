@@ -48,7 +48,6 @@ class StartCtrl {
                 "category",
                 "price",
                 "quantity",
-                "status"
                 ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

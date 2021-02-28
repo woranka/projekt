@@ -17,7 +17,7 @@ class OrderListCtrl {
     }
 
     public function validate() {
-        $this->form->IDproduct = ParamUtils::getFromRequest('IDproduct');
+        $this->form->IDcustomer = ParamUtils::getFromRequest('IDcustomer');
         return !App::getMessages()->isError();
     }
 
@@ -25,8 +25,8 @@ class OrderListCtrl {
         $this->validate();
 
         $search_params = []; 
-        if (isset($this->form->IDproduct) && strlen($this->form->IDproduct) > 0) {
-            $search_params['IDproduct[~]'] = $this->form->IDproduct . '%';
+        if (isset($this->form->IDcustomer) && strlen($this->form->IDcustomer) > 0) {
+            $search_params['IDcustomer[~]'] = $this->form->IDcustomer . '%';
         }
 
         $num_params = sizeof($search_params);
@@ -45,17 +45,13 @@ class OrderListCtrl {
                 "[>]product" => "IDproduct"
                 ],[
                     "customer.IDcustomer",
-                    //"customer.surname",
-                    //"customer.name",
-                    "employee.IDemployee",
-                    //"employee.surname(surname_e)",
-                    //"employee.name(name_e)",
-                    "product.IDproduct",
-                    //"product.product_name",
+                    "employee.surname",
+                    "product.product_name",
+                    "product.price",
                     "order.IDorder",
                     "order.order_number",
                     "order.order_date",
-                    "order.order_completed",
+                    "order.status",
                     ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

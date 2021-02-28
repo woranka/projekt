@@ -42,7 +42,7 @@
                             <td>{$p["category"]}</td>
                             <td>{$p["price"]}</td>
                             <td>
-                                {if $p["status"] == 'T'}
+                                {if $p["quantity"] > 0}
                                     <i class="fa fa-check" style="color: green; font-size: 1.5em"></i>
                                 {else}
                                     <i class="fa fa-times" style="color: red; font-size: 1.5em"></i>

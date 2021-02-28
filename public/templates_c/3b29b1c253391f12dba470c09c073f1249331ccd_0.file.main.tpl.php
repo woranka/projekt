@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-09 13:52:06
+/* Smarty version 3.1.34-dev-7, created on 2021-02-14 10:22:37
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_602285761d07e7_26534036',
+  'unifunc' => 'content_6028ebdd40de62_22866049',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3b29b1c253391f12dba470c09c073f1249331ccd' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\templates\\main.tpl',
-      1 => 1612875102,
+      1 => 1613294541,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_602285761d07e7_26534036 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6028ebdd40de62_22866049 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -114,7 +114,7 @@ loginShow" class="btn">PANEL PRACOWNIKA <i class="fa fa-cogs fa-5"></i></a></li>
     <!-- /.navbar -->
                
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_305027477602285761b4527_42934995', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12892377426028ebdd3f26d1_80607663', 'content');
 ?>
 
         
@@ -198,12 +198,12 @@ loginShow">Panel pracownika</a></b>
 
 <?php }
 /* {block 'content'} */
-class Block_305027477602285761b4527_42934995 extends Smarty_Internal_Block
+class Block_12892377426028ebdd3f26d1_80607663 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_305027477602285761b4527_42934995',
+    0 => 'Block_12892377426028ebdd3f26d1_80607663',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

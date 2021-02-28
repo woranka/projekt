@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-09 21:11:50
+/* Smarty version 3.1.34-dev-7, created on 2021-02-25 13:37:42
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\CustomerListView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6022ec86610658_06410747',
+  'unifunc' => 'content_60379a1663b8c0_93765038',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b635ce1981352439fb6466fdc87b56e1a22dfc46' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\CustomerListView.tpl',
-      1 => 1612901506,
+      1 => 1614256265,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6022ec86610658_06410747 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60379a1663b8c0_93765038 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_445718206022ec8651f8b8_07850238', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_44074625260379a16471675_45950376', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_5018354476022ec86540692_91688585 extends Smarty_Internal_Block
+class Block_154634668460379a164ac124_80649271 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -61,16 +61,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_445718206022ec8651f8b8_07850238 extends Smarty_Internal_Block
+class Block_44074625260379a16471675_45950376 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_445718206022ec8651f8b8_07850238',
+    0 => 'Block_44074625260379a16471675_45950376',
   ),
   'messages' => 
   array (
-    0 => 'Block_5018354476022ec86540692_91688585',
+    0 => 'Block_154634668460379a164ac124_80649271',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -110,7 +110,7 @@ customerList">lista</a>
                 
                 <div class="top-margin">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5018354476022ec86540692_91688585', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_154634668460379a164ac124_80649271', 'messages', $this->tplIndex);
 ?>
 
                 </div>
@@ -153,20 +153,19 @@ $_smarty_tpl->tpl_vars['c']->do_else = false;
 customerEdit/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 customerDelete/<?php echo $_smarty_tpl->tpl_vars['c']->value['IDcustomer'];?>
-">Usuń</a></td><td><?php if (!($_smarty_tpl->tpl_vars['c']->value["IDorder"] == '')) {?>Nr zamówienia: [<?php echo $_smarty_tpl->tpl_vars['c']->value["IDorder"];?>
-]<a class="button-small pure-button button-primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-orderList?IDcustomer=<?php echo $_smarty_tpl->tpl_vars['c']->value["IDcustomer"];?>
-">Szczegóły</a><?php } else {
-ob_start();
+">Usuń</a></td><td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['IDproduct']->value;
 $_prefixVariable1 = ob_get_clean();
+if ((!($_smarty_tpl->tpl_vars['c']->value["IDorder"] == '') && ($_prefixVariable1 == ''))) {?><a class="button-small pure-button button-primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+orderList?IDcustomer=<?php echo $_smarty_tpl->tpl_vars['c']->value["IDcustomer"];?>
+">Szczegóły</a><?php }
 ob_start();
-echo $_smarty_tpl->tpl_vars['c']->value["IDorder"];
+echo $_smarty_tpl->tpl_vars['IDproduct']->value;
 $_prefixVariable2 = ob_get_clean();
-if ((!($_prefixVariable1 == '')) && ($_prefixVariable2 == '')) {?><a class="button-small pure-button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+if ((!($_prefixVariable2 == ''))) {?><a class="button-small pure-button button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 orderSave?IDcustomer=<?php echo $_smarty_tpl->tpl_vars['c']->value["IDcustomer"];?>
 &IDproduct=<?php echo $_smarty_tpl->tpl_vars['IDproduct']->value;?>
-">Wybierz</a><?php }}?></td></tr>
+">Wybierz</a><?php }?></td></tr>
                         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

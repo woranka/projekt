@@ -17,12 +17,28 @@
                             <form action="{$conf->action_root}orderSave" method="post" class="pure-form pure-form-aligned">
                                 <legend>Dane zamówienia</legend>
                                 <div class="top-margin">
+                                    <label for="order_date">Data zamówienia</label>
+                                    <input id="order_date" type="text" readonly="" name="order_date" value="{$form->order_date}">
+                                </div>
+                                <div class="top-margin">
                                     <label for="order_number">Numer zamówienia</label>
                                     <input id="order_number" type="text" placeholder="Numer zamówienia" name="order_number" value="{$form->order_number}">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="order_completed">Status</label>
-                                    <input id="order_compleyec" type="text" placeholder="Status [0/1]" name="order_completed" value="{$form->order_completed}">
+                                    <label for="status">Status</label>
+                                    <input id="status" type="text" placeholder="Status [0/1]" name="status" value="{$form->status}">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="IDproduct">ID produktu</label>
+                                    <input id="IDproduct" type="text" placeholder="ID produktu" name="IDproduct" value="{$form->IDproduct}">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="IDcustomer">ID klienta</label>
+                                    <input id="IDcustomer" type="text" readonly="" name="IDcustomer" value="{$form->IDcustomer}">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="IDemployee">ID pracownika</label>
+                                    <input id="IDemployee" type="text" readonly="" name="IDemployee" value="{$form->IDemployee}">
                                 </div>
                                 <div class="top-margin">
                                     <input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>

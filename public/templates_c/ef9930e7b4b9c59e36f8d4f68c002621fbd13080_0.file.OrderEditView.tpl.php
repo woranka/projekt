@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-01-31 16:43:07
+/* Smarty version 3.1.34-dev-7, created on 2021-02-26 16:43:48
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\OrderEditView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_6016d00bab2685_99128562',
+  'unifunc' => 'content_60391734caf949_96639085',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ef9930e7b4b9c59e36f8d4f68c002621fbd13080' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\OrderEditView.tpl',
-      1 => 1612107734,
+      1 => 1614354225,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6016d00bab2685_99128562 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60391734caf949_96639085 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9973401096016d00ba28cd4_84190658', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_162033094460391734c03181_89663637', 'content');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_20969225306016d00ba5d8f1_64627155 extends Smarty_Internal_Block
+class Block_38718946260391734c56aa7_67079830 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -61,16 +61,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_9973401096016d00ba28cd4_84190658 extends Smarty_Internal_Block
+class Block_162033094460391734c03181_89663637 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_9973401096016d00ba28cd4_84190658',
+    0 => 'Block_162033094460391734c03181_89663637',
   ),
   'messages' => 
   array (
-    0 => 'Block_20969225306016d00ba5d8f1_64627155',
+    0 => 'Block_38718946260391734c56aa7_67079830',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -94,13 +94,33 @@ start">Start</a></li>
 orderSave" method="post" class="pure-form pure-form-aligned">
                                 <legend>Dane zamówienia</legend>
                                 <div class="top-margin">
+                                    <label for="order_date">Data zamówienia</label>
+                                    <input id="order_date" type="text" readonly="" name="order_date" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->order_date;?>
+">
+                                </div>
+                                <div class="top-margin">
                                     <label for="order_number">Numer zamówienia</label>
                                     <input id="order_number" type="text" placeholder="Numer zamówienia" name="order_number" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->order_number;?>
 ">
                                 </div>
                                 <div class="top-margin">
-                                    <label for="order_completed">Status</label>
-                                    <input id="order_compleyec" type="text" placeholder="Status [0/1]" name="order_completed" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->order_completed;?>
+                                    <label for="status">Status</label>
+                                    <input id="status" type="text" placeholder="Status [0/1]" name="status" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->status;?>
+">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="IDproduct">ID produktu</label>
+                                    <input id="IDproduct" type="text" placeholder="ID produktu" name="IDproduct" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->IDproduct;?>
+">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="IDcustomer">ID klienta</label>
+                                    <input id="IDcustomer" type="text" readonly="" name="IDcustomer" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->IDcustomer;?>
+">
+                                </div>
+                                <div class="top-margin">
+                                    <label for="IDemployee">ID pracownika</label>
+                                    <input id="IDemployee" type="text" readonly="" name="IDemployee" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->IDemployee;?>
 ">
                                 </div>
                                 <div class="top-margin">
@@ -116,7 +136,7 @@ orderList">Powrót</a>
                 </div>
                 <div class="col-md-6">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20969225306016d00ba5d8f1_64627155', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_38718946260391734c56aa7_67079830', 'messages', $this->tplIndex);
 ?>
 
                 </div>

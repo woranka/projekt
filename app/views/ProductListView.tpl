@@ -53,7 +53,6 @@
                             <th>Kategoria</th>
                             <th>Cena</th>
                             <th>Ilość</th>
-                            <th>Dostępny</th>
                             <th>Opcje</th>
                         </tr>
                     </thead>
@@ -66,12 +65,11 @@
                                 <td>{$p["category"]}</td>
                                 <td>{$p["price"]}</td>
                                 <td>{$p["quantity"]}</td>
-                                <td>{$p["status"]}</td>
                                 <td>
                                     <a class="button-small pure-button button-secondary" href="{$conf->action_url}productEdit/{$p['IDproduct']}">Edytuj</a>
                                     &nbsp;
                                     <a class="button-small pure-button button-warning" href="{$conf->action_url}productDelete/{$p['IDproduct']}">Usuń</a>
-                                    {if $p["status"] == 'T'}
+                                    {if $p["quantity"] > 0}
                                         &nbsp;
                                         <a class="button-small pure-button button-success" href="{$conf->action_url}customerList?IDproduct={$p['IDproduct']}">Dodaj do zamówienia</a>
                                     {/if}

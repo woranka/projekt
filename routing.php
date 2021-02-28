@@ -19,7 +19,7 @@ Utils::addRoute('productDelete',    'ProductEditCtrl',    ['user','admin']);
 Utils::addRoute('productSave',      'ProductEditCtrl',    ['user','admin']);
 
 Utils::addRoute('orderList',        'OrderListCtrl',      ['user','admin']);
-Utils::addRoute('orderNew',         'OrderEditCtrl',      ['user','admin']);
+//Utils::addRoute('orderNew',         'OrderEditCtrl',      ['user','admin']);
 Utils::addRoute('orderEdit',        'OrderEditCtrl',      ['user','admin']);
 Utils::addRoute('orderDelete',      'OrderEditCtrl',      ['user','admin']);
 Utils::addRoute('orderSave',        'OrderEditCtrl',      ['user','admin']);

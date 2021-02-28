@@ -81,11 +81,11 @@
                                     <a class="button-small pure-button button-warning" href="{$conf->action_url}customerDelete/{$c['IDcustomer']}">Usuń</a>
                                 </td>
                                 <td>
-                                    {if !($c["IDorder"] == '')}
-                                        Nr zamówienia: [{$c["IDorder"]}]
+                                    {if (!($c["IDorder"] == '') && ({$IDproduct} == ''))}
                                         <a class="button-small pure-button button-primary" href="{$conf->action_root}orderList?IDcustomer={$c["IDcustomer"]}">Szczegóły</a>
-                                    {else if (!({$IDproduct} == '')) && ({$c["IDorder"]} == '')}
-                                        <a class="button-small pure-button" href="{$conf->action_root}orderSave?IDcustomer={$c["IDcustomer"]}&IDproduct={$IDproduct}">Wybierz</a>
+                                    {/if}
+                                    {if (!({$IDproduct} == ''))}
+                                        <a class="button-small pure-button button-success" href="{$conf->action_root}orderSave?IDcustomer={$c["IDcustomer"]}&IDproduct={$IDproduct}">Wybierz</a>
                                     {/if}
                                 </td>
                             </tr>
