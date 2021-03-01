@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-23 21:25:22
+/* Smarty version 3.1.34-dev-7, created on 2021-03-01 16:14:50
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\ProductListView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_603564b23fa2a8_06315097',
+  'unifunc' => 'content_603d04eaa1d013_14133691',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ee1bd8748f5ad3f558e37c290a52db1303fc3e38' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\ProductListView.tpl',
-      1 => 1614111915,
+      1 => 1614611688,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,20 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_603564b23fa2a8_06315097 (Smarty_Internal_Template $_smarty_tpl) {
+function content_603d04eaa1d013_14133691 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1353478706603564b22e8a67_32189224', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_469525926603d04ea964d76_55357392', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_699630856603564b2326db5_23057403 extends Smarty_Internal_Block
+class Block_605232597603d04ea9917f5_71873743 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -60,16 +60,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_1353478706603564b22e8a67_32189224 extends Smarty_Internal_Block
+class Block_469525926603d04ea964d76_55357392 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1353478706603564b22e8a67_32189224',
+    0 => 'Block_469525926603d04ea964d76_55357392',
   ),
   'messages' => 
   array (
-    0 => 'Block_699630856603564b2326db5_23057403',
+    0 => 'Block_605232597603d04ea9917f5_71873743',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -112,7 +112,7 @@ productList">lista</a>
                 
                 <div class="top-margin">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_699630856603564b2326db5_23057403', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_605232597603d04ea9917f5_71873743', 'messages', $this->tplIndex);
 ?>
 
                 </div>
@@ -146,7 +146,7 @@ productEdit/<?php echo $_smarty_tpl->tpl_vars['p']->value['IDproduct'];?>
 productDelete/<?php echo $_smarty_tpl->tpl_vars['p']->value['IDproduct'];?>
 ">Usuń</a><?php if ($_smarty_tpl->tpl_vars['p']->value["quantity"] > 0) {?>&nbsp;<a class="button-small pure-button button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 customerList?IDproduct=<?php echo $_smarty_tpl->tpl_vars['p']->value['IDproduct'];?>
-">Dodaj do zamówienia</a><?php }?></td></tr>
+">Dodaj do zamówienia</a><?php } else { ?>&nbsp; BRAK<?php }?></td></tr>
                         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

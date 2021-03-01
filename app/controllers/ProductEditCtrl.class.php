@@ -24,7 +24,6 @@ class ProductEditCtrl {
         $this->form->category = ParamUtils::getFromRequest('category', true, 'Błędne wywołanie aplikacji');
         $this->form->price = ParamUtils::getFromRequest('price', true, 'Błędne wywołanie aplikacji');
         $this->form->quantity = ParamUtils::getFromRequest('quantity', true, 'Błędne wywołanie aplikacji');
-        $this->form->status = ParamUtils::getFromRequest('status', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -41,9 +40,6 @@ class ProductEditCtrl {
         }
         if (!isset($this->form->quantity)) {
             Utils::addErrorMessage('Wprowadź ilość');
-        }
-        if (empty(trim($this->form->status))) {
-            Utils::addErrorMessage('Wprowadź status');
         }
         
 
@@ -82,7 +78,6 @@ class ProductEditCtrl {
                 $this->form->category = $record['category'];
                 $this->form->price = $record['price'];
                 $this->form->quantity = $record['quantity'];
-                $this->form->status = $record['status'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -126,7 +121,6 @@ class ProductEditCtrl {
                         "category" => $this->form->category,
                         "price" => $this->form->price,
                         "quantity" => $this->form->quantity,
-                        "status" => $this->form->status,
                     ]);
                 } else {
                     //2.2 Edycja rekordu o danym ID
@@ -135,7 +129,6 @@ class ProductEditCtrl {
                         "category" => $this->form->category,
                         "price" => $this->form->price,
                         "quantity" => $this->form->quantity,
-                        "status" => $this->form->status,
                         ],[
                         "IDproduct" => $this->form->IDproduct
                     ]);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-06 21:03:43
+/* Smarty version 3.1.34-dev-7, created on 2021-03-01 16:08:00
   from 'C:\xampp\htdocs\PROJEKTY\sklep\app\views\ProductEditView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601ef61f072ad2_05869996',
+  'unifunc' => 'content_603d03504b6353_06953342',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b861e21569a8a2b7e3a44fdda5e78e94750c723b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PROJEKTY\\sklep\\app\\views\\ProductEditView.tpl',
-      1 => 1612641821,
+      1 => 1614611278,
       2 => 'file',
     ),
   ),
@@ -20,20 +20,20 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601ef61f072ad2_05869996 (Smarty_Internal_Template $_smarty_tpl) {
+function content_603d03504b6353_06953342 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_30133715601ef61f005542_35706683', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_184348623603d0350451150_86765081', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'messages'} */
-class Block_1578167228601ef61f036c77_82792331 extends Smarty_Internal_Block
+class Block_1884029881603d035047d073_07237901 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -60,16 +60,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 /* {/block 'messages'} */
 /* {block 'content'} */
-class Block_30133715601ef61f005542_35706683 extends Smarty_Internal_Block
+class Block_184348623603d0350451150_86765081 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_30133715601ef61f005542_35706683',
+    0 => 'Block_184348623603d0350451150_86765081',
   ),
   'messages' => 
   array (
-    0 => 'Block_1578167228601ef61f036c77_82792331',
+    0 => 'Block_1884029881603d035047d073_07237901',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -112,11 +112,6 @@ productSave" method="post" class="pure-form pure-form-aligned">
                                     <input id="quantity" type="text" placeholder="ilość" name="quantity" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->quantity;?>
 ">
                                 </div>
-                                <div class="top-margin">
-                                    <label for="status">Dostępny</label>
-                                    <input id="status" type="text" placeholder="status [T/N]" name="status" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->status;?>
-">
-                                </div>
                                 <div class="top margin" style="display: flex">
                                     <a class="pure-button button-secondary" style="width: 35%" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 productList">Powrót</a>
@@ -131,7 +126,7 @@ productList">Powrót</a>
                 </div>
                 <div class="col-md-6">
                 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1578167228601ef61f036c77_82792331', 'messages', $this->tplIndex);
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1884029881603d035047d073_07237901', 'messages', $this->tplIndex);
 ?>
 
                 </div>

@@ -72,6 +72,8 @@
                                     {if $p["quantity"] > 0}
                                         &nbsp;
                                         <a class="button-small pure-button button-success" href="{$conf->action_url}customerList?IDproduct={$p['IDproduct']}">Dodaj do zamówienia</a>
+                                    {else}
+                                        &nbsp; BRAK
                                     {/if}
                                 </td>
                             </tr>

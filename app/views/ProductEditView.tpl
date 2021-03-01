@@ -32,10 +32,6 @@
                                     <label for="quantity">Ilość</label>
                                     <input id="quantity" type="text" placeholder="ilość" name="quantity" value="{$form->quantity}">
                                 </div>
-                                <div class="top-margin">
-                                    <label for="status">Dostępny</label>
-                                    <input id="status" type="text" placeholder="status [T/N]" name="status" value="{$form->status}">
-                                </div>
                                 <div class="top margin" style="display: flex">
                                     <a class="pure-button button-secondary" style="width: 35%" href="{$conf->action_root}productList">Powrót</a>
                                     &nbsp;
